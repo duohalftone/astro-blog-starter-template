@@ -10,3 +10,4 @@ build/
 
 # Add project-specific ignores as needed
 # e.g., large media files: *.mp4, *.mov
+_worker.js
