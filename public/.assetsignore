@@ -3,6 +3,7 @@
 *.tmp
 .cache/
 node_modules/
+_worker.js
 
 # Ignore build artifacts if accidentally placed here
 dist/
@@ -10,4 +11,3 @@ build/
 
 # Add project-specific ignores as needed
 # e.g., large media files: *.mp4, *.mov
-_worker.js
