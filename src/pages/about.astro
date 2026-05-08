@@ -1,62 +1,47 @@
 ---
-import Layout from '../layouts/BlogPost.astro';
+import Layout from '../components/BaseLayout.astro';
+const title = 'About Stein Chong';
 ---
+<Layout title={title} description="About Stein Chong">
+  <div class="flex flex-col md:flex-row min-h-screen">
+    <div class="sidebar bg-transparent p-8 md:fixed md:top-0 md:left-0 md:h-full md:w-[350px] md:overflow-auto">
+      <header>
+        <a href="/" class="inline-block">
+          <h1>Stein <br />Chong</h1>
+        </a>
+      </header>
+    </div>
 
-<Layout
-	title="About Me"
-	description="Lorem ipsum dolor sit amet"
-	pubDate={new Date('August 08 2021')}
-	heroImage="/blog-placeholder-about.jpg"
->
-	<p>
-		Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-		labore et dolore magna aliqua. Vitae ultricies leo integer malesuada nunc vel risus commodo
-		viverra. Adipiscing enim eu turpis egestas pretium. Euismod elementum nisi quis eleifend quam
-		adipiscing. In hac habitasse platea dictumst vestibulum. Sagittis purus sit amet volutpat. Netus
-		et malesuada fames ac turpis egestas. Eget magna fermentum iaculis eu non diam phasellus
-		vestibulum lorem. Varius sit amet mattis vulputate enim. Habitasse platea dictumst quisque
-		sagittis. Integer quis auctor elit sed vulputate mi. Dictumst quisque sagittis purus sit amet.
-	</p>
+    <div class="content max-w-3xl md:ml-[380px] p-10 flex-1 space-y-6">
+      <p class="text-sm italic text-white/80">work in progress...</p>
+      <h1 class="text-4xl font-semibold">A little about me.</h1>
+      <p>
+        Name: Stein Chong <br />
+        Sex: Human dude <br />
+        Age: Oldest Gen-Z, youngest Millennial <br />
+        Race: Legally and genetically Kadazan Sino, technically Chinese <br />
+        Nationality: Monyet <br />
+        Born and raised: Kota Kinabalu, Sabah <br />
+        Slept and ate: Penampang, Sabah <br />
+        Address: Surviving in Subang Jaya, Selangor <br />
+        Occupation: Wished to be a scientist, studied graphic design, worked as a print maker, sitting at home as a direct-to-print artist, hoping to have a small, simple life to the end.
+      </p>
+      <p>
+        As you can see, I dabble in photography but I like to do other things as well. Making stuff is what I enjoy doing. Zines, bookmaking, analog film photography, developing them myself, trying to do editing and sequencing, graphic design and maybe some more...
+      </p>
+      <p>
+        This website too! Trying to do HTML and CSS when the last time I touched it was my college years (which is almost 10 years ago now) is kinda challenging but fun and rewarding too.
+      </p>
+      <p>
+        Why a website? Social platforms has been burning me out and huge corpos scraping everyone's data just for their own gain is just painful to just accept and live with it. I can put up whatever I want and whenever I like.
+      </p>
+      <p>
+        <a href="https://www.instagram.com/steinstreet/">@steinstreet</a> <br />
+        Instagram if you prefer DMs. <br />
+        (But don't expect instant replies due to me being a very cautious person and the amount of spam I receive there.)
+      </p>
+    </div>
+  </div>
 
-	<p>
-		Morbi tristique senectus et netus. Id semper risus in hendrerit gravida rutrum quisque non
-		tellus. Habitasse platea dictumst quisque sagittis purus sit amet. Tellus molestie nunc non
-		blandit massa. Cursus vitae congue mauris rhoncus. Accumsan tortor posuere ac ut. Fringilla urna
-		porttitor rhoncus dolor. Elit ullamcorper dignissim cras tincidunt lobortis. In cursus turpis
-		massa tincidunt dui ut ornare lectus. Integer feugiat scelerisque varius morbi enim nunc.
-		Bibendum neque egestas congue quisque egestas diam. Cras ornare arcu dui vivamus arcu felis
-		bibendum. Dignissim suspendisse in est ante in nibh mauris. Sed tempus urna et pharetra pharetra
-		massa massa ultricies mi.
-	</p>
-
-	<p>
-		Mollis nunc sed id semper risus in. Convallis a cras semper auctor neque. Diam sit amet nisl
-		suscipit. Lacus viverra vitae congue eu consequat ac felis donec. Egestas integer eget aliquet
-		nibh praesent tristique magna sit amet. Eget magna fermentum iaculis eu non diam. In vitae
-		turpis massa sed elementum. Tristique et egestas quis ipsum suspendisse ultrices. Eget lorem
-		dolor sed viverra ipsum. Vel turpis nunc eget lorem dolor sed viverra. Posuere ac ut consequat
-		semper viverra nam. Laoreet suspendisse interdum consectetur libero id faucibus. Diam phasellus
-		vestibulum lorem sed risus ultricies tristique. Rhoncus dolor purus non enim praesent elementum
-		facilisis. Ultrices tincidunt arcu non sodales neque. Tempus egestas sed sed risus pretium quam
-		vulputate. Viverra suspendisse potenti nullam ac tortor vitae purus faucibus ornare. Fringilla
-		urna porttitor rhoncus dolor purus non. Amet dictum sit amet justo donec enim.
-	</p>
-
-	<p>
-		Mattis ullamcorper velit sed ullamcorper morbi tincidunt. Tortor posuere ac ut consequat semper
-		viverra. Tellus mauris a diam maecenas sed enim ut sem viverra. Venenatis urna cursus eget nunc
-		scelerisque viverra mauris in. Arcu ac tortor dignissim convallis aenean et tortor at. Curabitur
-		gravida arcu ac tortor dignissim convallis aenean et tortor. Egestas tellus rutrum tellus
-		pellentesque eu. Fusce ut placerat orci nulla pellentesque dignissim enim sit amet. Ut enim
-		blandit volutpat maecenas volutpat blandit aliquam etiam. Id donec ultrices tincidunt arcu. Id
-		cursus metus aliquam eleifend mi.
-	</p>
-
-	<p>
-		Tempus quam pellentesque nec nam aliquam sem. Risus at ultrices mi tempus imperdiet. Id porta
-		nibh venenatis cras sed felis eget velit. Ipsum a arcu cursus vitae. Facilisis magna etiam
-		tempor orci eu lobortis elementum. Tincidunt dui ut ornare lectus sit. Quisque non tellus orci
-		ac. Blandit libero volutpat sed cras. Nec tincidunt praesent semper feugiat nibh sed pulvinar
-		proin gravida. Egestas integer eget aliquet nibh praesent tristique magna.
-	</p>
+  <footer>Made by Stein - All rights reserved.</footer>
 </Layout>

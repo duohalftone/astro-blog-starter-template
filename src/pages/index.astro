@@ -1,50 +1,48 @@
 ---
-import BaseHead from '../components/BaseHead.astro';
-import Header from '../components/Header.astro';
-import Footer from '../components/Footer.astro';
-import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
+import Layout from '../components/BaseLayout.astro';
+import { Image } from 'astro:assets';
+import { posts } from '../data/posts';
+const title = 'Stein Chong';
 ---
+<Layout title={title} description="Gallery test">
+  <div class="flex flex-col md:flex-row min-h-screen">
+    <div class="sidebar bg-transparent p-8 md:fixed md:top-0 md:left-0 md:h-full md:w-[350px] md:overflow-auto">
+      <header>
+        <h3>Stein <br />Chong</h3>
+        <h4 class="mt-6 leading-tight text-base">
+          <span class="welcome">Welcome!</span><br />There are no follows, no likes, no comments and no algorithms, you came here because you want to. Just take a stroll whenever you like.
+        </h4>
+        <p class="mt-6 text-sm italic text-white/80">
+          Sorry for not feeding Meta anymore. <br />You can still contact me on Instagram <a href="https://www.instagram.com/steinstreet/">@steinstreet</a>.
+        </p>
+        <a href="/about" class="inline-block mt-8">
+          <h3>About Me</h3>
+        </a>
+        <p class="mt-4 text-sm italic text-white/80">
+          Website in progress, changes will be made randomly.<br />Posts will upload periodically.
+        </p>
+      </header>
+    </div>
 
-<!doctype html>
-<html lang="en">
-	<head>
-		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
-	</head>
-	<body>
-		<Header />
-		<main>
-			<h1>🧑‍🚀 Hello, Astronaut!</h1>
-			<p>
-				Welcome to the official <a href="https://astro.build/">Astro</a> blog starter template. This
-				template serves as a lightweight, minimally-styled starting point for anyone looking to build
-				a personal website, blog, or portfolio with Astro.
-			</p>
-			<p>
-				This template comes with a few integrations already configured in your
-				<code>astro.config.mjs</code> file. You can customize your setup with
-				<a href="https://astro.build/integrations">Astro Integrations</a> to add tools like Tailwind,
-				React, or Vue to your project.
-			</p>
-			<p>Here are a few ideas on how to get started with the template:</p>
-			<ul>
-				<li>Edit this page in <code>src/pages/index.astro</code></li>
-				<li>Edit the site header items in <code>src/components/Header.astro</code></li>
-				<li>Add your name to the footer in <code>src/components/Footer.astro</code></li>
-				<li>Check out the included blog posts in <code>src/content/blog/</code></li>
-				<li>Customize the blog post page layout in <code>src/layouts/BlogPost.astro</code></li>
-			</ul>
-			<p>
-				Have fun! If you get stuck, remember to <a href="https://docs.astro.build/"
-					>read the docs
-				</a> or <a href="https://astro.build/chat">join us on Discord</a> to ask questions.
-			</p>
-			<p>
-				Looking for a blog template with a bit more personality? Check out <a
-					href="https://github.com/Charca/astro-blog-template"
-					>astro-blog-template
-				</a> by <a href="https://twitter.com/Charca">Maxi Ferreira</a>.
-			</p>
-		</main>
-		<Footer />
-	</body>
-</html>
+    <div class="content md:ml-[380px] p-10 flex-1">
+      <div class="search-bar">
+        <input id="post-search" type="search" placeholder="Search posts..." aria-label="Search posts" class="w-full rounded-2xl border border-white/35 bg-white/8 px-4 py-3 text-white outline-none transition duration-200 focus:border-[#f04e30] focus:bg-white/12" />
+      </div>
+
+      <main id="post-main" class="grid gap-8 md:grid-cols-2">
+        {posts.map((post) => (
+          <a href={`/posts/${post.slug}`} class="relative overflow-hidden block">
+            <Image src={post.cover} alt={post.coverAlt} inferSize={true} widths={[400, 800, 1200]} sizes="(min-width: 768px) 50vw, 100vw" class="w-full h-auto block" loading="lazy" />
+            <p class="absolute inset-x-0 bottom-0 m-0 p-5 font-bold text-[#dadadae1] text-[clamp(1.3rem,1.5vw,1.4rem)] leading-none text-left shadow-[2px_0_5px_rgba(0,0,0,0.8)]">
+              {post.title}
+            </p>
+          </a>
+        ))}
+      </main>
+
+      <nav id="pagination" class="page-links mt-10" aria-label="Post pagination"></nav>
+    </div>
+  </div>
+
+  <footer>Made by Stein - All rights reserved.</footer>
+</Layout>

@@ -1,0 +1,56 @@
+---
+import Layout from '../../components/BaseLayout.astro';
+import { Image } from 'astro:assets';
+import { posts } from '../../data/posts';
+
+export async function getStaticPaths() {
+  return posts.map((post) => ({ params: { slug: post.slug } }));
+}
+
+const { slug } = Astro.params;
+const post = posts.find((item) => item.slug === slug);
+
+if (!post) {
+  throw new Error(`Post not found: ${slug}`);
+}
+
+const postIndex = posts.findIndex((item) => item.slug === slug);
+const previousPost = posts[postIndex - 1] ?? null;
+const nextPost = posts[postIndex + 1] ?? null;
+---
+<Layout title={post.title} description={post.description}>
+  <div class="flex flex-col md:flex-row min-h-screen">
+    <div class="sidebar bg-transparent p-8 md:fixed md:top-0 md:left-0 md:h-full md:w-[350px] md:overflow-auto">
+      <header>
+        <h3><a href="/">Stein <br />Chong</a></h3>
+        <h2 class="mt-6">{post.title}</h2>
+        <p class="h2desc">{post.description}</p>
+      </header>
+    </div>
+
+    <div class="content md:ml-[380px] p-10 flex-1">
+      <section>
+        <nav class="page-links flex flex-wrap justify-between gap-4 mb-8">
+          {previousPost ? <a href={`/posts/${previousPost.slug}`} class="text-[#f04e30]">&larr; {previousPost.title}</a> : null}
+          {nextPost ? <a href={`/posts/${nextPost.slug}`} class="text-[#f04e30]">{nextPost.title} &rarr;</a> : null}
+        </nav>
+        <section id="photos" class="grid gap-4 justify-center">
+          {post.images.map((image) => (
+            <figure class="mx-2">
+              <a href={image} target="_blank" class="block overflow-hidden">
+                <Image src={image} alt="" inferSize={true} widths={[640, 960, 1200]} sizes="(min-width: 768px) 50vw, 100vw" class="w-full h-auto block" loading="lazy" />
+                <span class="photo-filename"></span>
+              </a>
+            </figure>
+          ))}
+          {post.details ? (
+            <div class="postdesc mt-8 max-w-full px-2">
+              <p>{post.details}</p>
+            </div>
+          ) : null}
+        </section>
+      </section>
+    </div>
+  </div>
+  <footer>Made by Stein - All rights reserved.</footer>
+</Layout>
